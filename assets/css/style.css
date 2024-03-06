@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  /* border: 1px solid red; */
+  /* margin: 3px; */
+  scroll-behavior: smooth;
+}
+
+:root {
+}
+
+h1 {
+  font-size: 300%;
+}
+
+h2 {
+  font-size: 250%;
+}
+
+h3 {
+  font-size: 220%;
+}
+
+h4 {
+  font-size: 170%;
+}
+
+/* @media screen and (max-width: 700px) {
+  header ul {
+    flex-direction: column;
+  }
+  header li {
+    padding-top: 10px;
+  }
+} */
