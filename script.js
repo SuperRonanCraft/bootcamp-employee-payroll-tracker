@@ -15,16 +15,34 @@ let priorEmployees = [];
 // Collect employee data
 const collectEmployees = function () {
   // TODO: Get user input to create and return an array of employee objects
+  // Load prior employees
   let employees = priorEmployees;
-  employees.push(collectEmployee());
-  while (confirm("Add New Employee?")) {
-    employees.push(collectEmployee());
-  }
+  // Collect an employee one by one if asked
+  collectEmployee(employees);
+  // Cache prior employees incase we press add employee button again
   priorEmployees = employees;
   return employees;
 };
 
-function collectEmployee() {
+function collectEmployee(employeesArray) {
+  addEmployee(employeesArray, promptEmployeeData());
+  if (confirm("Add New Employee?")) {
+    collectEmployee(employeesArray);
+  }
+}
+
+function addEmployee(employeeArray, inputData) {
+  if (isNaN(inputData.salary)) {
+    // Not a valid salary number
+    console.log("Invalid salary number " + inputData.salary);
+    // Default it to 0
+    inputData.salary = 0;
+  }
+
+  employeeArray.push(inputData);
+}
+
+function promptEmployeeData() {
   return {
     firstName: prompt("Add First Name"),
     lastName: prompt("Add Last Name"),
@@ -33,13 +51,34 @@ function collectEmployee() {
 }
 
 // Display the average salary
-const displayAverageSalary = function (employeesArray) {
+const displayAverageSalary = function (employees) {
   // TODO: Calculate and display the average salary
+  let salariesTotal = 0;
+  for (let employee of employees) {
+    // Add and Update String salary with number salary
+    salariesTotal += parseInt(employee.salary);
+  }
+  // Get the average salary
+  const averageSalary = salariesTotal / employees.length;
+  // Log to console the result
+  console.log(
+    `Average Salary between our ${
+      employees.length
+    } employee(s) is $${Math.floor(averageSalary)}`
+  );
 };
 
 // Select a random employee
-const getRandomEmployee = function (employeesArray) {
+const getRandomEmployee = function (employees) {
   // TODO: Select and display a random employee
+  // Generate a random number between 0 and employee count
+  const randomNumber = Math.floor(Math.random() * employees.length);
+  // Grab the nth employee from employees array via our randomNumber index
+  const employee = employees[randomNumber];
+  // Log to console result
+  console.log(
+    `Congrats to ${employee.firstName} ${employee.lastName}, our drawing winner!`
+  );
 };
 
 /*
