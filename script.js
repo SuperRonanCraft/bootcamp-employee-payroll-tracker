@@ -1,13 +1,3 @@
-/* User Input
-
-    Presses add employee
-    types in their first, last and salary
-    can continue or cancel
-        continue will start from beggining
-        when cancelling display new data
-
-*/
-
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector("#add-employees-btn");
 let priorEmployees = [];
