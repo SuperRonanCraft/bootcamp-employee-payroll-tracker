@@ -27,6 +27,8 @@ function addEmployee(employeeArray, inputData) {
     console.log("Invalid salary number " + inputData.salary);
     // Default it to 0
     inputData.salary = 0;
+  } else {
+    inputData.salary = parseInt(inputData.salary);
   }
 
   employeeArray.push(inputData);
@@ -46,7 +48,7 @@ const displayAverageSalary = function (employees) {
   let salariesTotal = 0;
   for (let employee of employees) {
     // Add and Update String salary with number salary
-    salariesTotal += parseInt(employee.salary);
+    salariesTotal += employee.salary;
   }
   // Get the average salary
   const averageSalary = salariesTotal / employees.length;

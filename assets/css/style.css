@@ -14,7 +14,7 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: blanchedalmond;
 }
 
 .wrapper {
@@ -28,6 +28,13 @@ header {
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  padding-top: 0px;
+  color: hsl(206, 18%, 15%);
 }
 
 h2 {
@@ -104,11 +111,16 @@ tbody tr:nth-child(even) {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
+}
+
+.btn:hover {
+  background: green;
 }
 
 .float-right {
