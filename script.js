@@ -22,15 +22,13 @@ function collectEmployee(employeesArray) {
 }
 
 function addEmployee(employeeArray, inputData) {
+  inputData.salary = parseInt(inputData.salary);
   if (isNaN(inputData.salary)) {
     // Not a valid salary number
     console.log("Invalid salary number " + inputData.salary);
     // Default it to 0
     inputData.salary = 0;
-  } else {
-    inputData.salary = parseInt(inputData.salary);
   }
-
   employeeArray.push(inputData);
 }
 
